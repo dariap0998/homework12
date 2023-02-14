@@ -25,4 +25,21 @@ public class Book {
       public void setPublicationDate(int publicationDate) {
             this.publicationDate = publicationDate;
       }
+
+      public String toString() {
+            return "Название книги - " + getBookName() + " Год издания - " + getPublicationDate();
+      }
+
+      public boolean equals(Object other) {
+            if (this.getClass() != other.getClass()) {
+                  return false;
+            }
+            Book second = (Book) other;
+            return bookName.equals(second.bookName);
+
+      }
+
+      public int hashCode() {
+            return java.util.Objects.hash(bookName);
+      }
 }
