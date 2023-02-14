@@ -25,20 +25,22 @@ public class Book {
       public void setPublicationDate(int publicationDate) {
             this.publicationDate = publicationDate;
       }
-
+      @Override
       public String toString() {
             return "Название книги - " + getBookName() + " Год издания - " + getPublicationDate();
       }
 
+      @Override
       public boolean equals(Object other) {
             if (this.getClass() != other.getClass()) {
                   return false;
             }
             Book second = (Book) other;
-            return bookName.equals(second.bookName);
+            return this.bookName.equals(second.bookName);
 
       }
 
+      @Override
       public int hashCode() {
             return java.util.Objects.hash(bookName);
       }
