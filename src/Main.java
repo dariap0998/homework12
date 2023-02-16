@@ -19,6 +19,7 @@ public class Main {
         System.out.println(masterAndMargarita.equals(deadSouls));
         System.out.println(bulgakov.equals(gogol));
 
-
     }
+
+
 }

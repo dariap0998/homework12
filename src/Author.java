@@ -1,28 +1,30 @@
+import java.util.Objects;
+
 public class Author {
-       private String fullName;
+       private final String fullName;
 
        public  Author (String fullName) {
               this.fullName = fullName;
        }
 
        public String getFullName() {
-              return this.fullName;
+              return fullName;
        }
        @Override
        public String toString() {
-              return "Автор книги - "+ getFullName();
-
+              return "Автор книги - " + getFullName();
        }
        @Override
        public boolean equals(Object other) {
-              if (this.getClass() != other.getClass()) {
-                     return false;
-              }
-              Author second = (Author) other;
-              return this.fullName.equals(second.fullName);
+              if (this == other) return true;
+              if (other == null || this.getClass() != other.getClass()) return false;
+              Author author = (Author) other;
+              return Objects.equals(fullName, author.fullName);
        }
        @Override
        public int hashCode() {
-              return java.util.Objects.hash(fullName);
+              return Objects.hash(fullName);
        }
+
+
 }
