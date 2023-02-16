@@ -1,6 +1,8 @@
+import java.util.Objects;
+
 public class Book {
-      private String bookName;
-      private Author author;
+      private final String bookName;
+      private final Author author;
       private int publicationDate;
 
       public Book(String bookName, Author author, int publicationDate) {
@@ -11,15 +13,15 @@ public class Book {
       }
 
       public String getBookName() {
-            return this.bookName;
+            return bookName;
       }
 
       public Author getAuthor() {
-            return this.author;
+            return author;
       }
 
       public int getPublicationDate() {
-            return this.publicationDate;
+            return publicationDate;
       }
 
       public void setPublicationDate(int publicationDate) {
@@ -32,16 +34,16 @@ public class Book {
 
       @Override
       public boolean equals(Object other) {
-            if (this.getClass() != other.getClass()) {
-                  return false;
-            }
-            Book second = (Book) other;
-            return this.bookName.equals(second.bookName);
+            if (this == other) return true;
+            if (other == null || this.getClass() != other.getClass()) return false;
+            Book book = (Book) other;
+            return publicationDate == book.publicationDate && Objects.equals(book, book.bookName) && Objects.equals(author, book.author);
 
       }
-
       @Override
       public int hashCode() {
-            return java.util.Objects.hash(bookName);
+            return Objects.hash(bookName, author, publicationDate);
       }
+
+
 }
